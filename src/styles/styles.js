@@ -1,17 +1,28 @@
 import variables from './variables';
-
-const flex = {
-	flex1: {
-		flex: 1,
-	},
-};
+import flex from './flex';
+import spacing from './spacing';
+import sizing from './sizing';
+import fontFamily from './fontFamily';
+import themeColors from './themes';
 
 export default {
 	...flex,
+	...spacing,
+	...sizing,
 
 	appContent: {
 		backgroundColor: '#fff',
 		overflow: 'hidden',
+	},
+
+	textLarge: {
+		fontSize: variables.fontSizeLarge,
+	},
+
+	headerText: {
+		color: themeColors.heading,
+		fontFamily: fontFamily.RALEWAY_BOLD,
+		fontSize: variables.fontSizeLarge,
 	},
 };
 
