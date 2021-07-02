@@ -8,7 +8,7 @@ export default {
 	black: '#000000',
 	blue: '#0185ff',
 	blueHover: '#0063bf',
-	green: '#03d47c',
+	orange: '#FD5824',
 	greenHover: '#03c775',
 	red: '#fc3826',
 	redHover: '#e13826',

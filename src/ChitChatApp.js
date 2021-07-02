@@ -5,6 +5,7 @@ import styles from './styles/styles';
 import {FontAwesome5, FontAwesome} from '@expo/vector-icons';
 import themeColors from './styles/themes';
 import variables from './styles/variables';
+import Fab from './components/Fab';
 
 const ChitChatApp = () => {
 	const {flex1, flexRow, ph5, pv3, justifyContentBetween, alignItemsCenter, alignItemsEnd, h100, headerText} = styles;
@@ -27,6 +28,8 @@ const ChitChatApp = () => {
 						</TouchableOpacity>
 					</View>
 				</View>
+
+				<Fab />
 			</View>
 		</ScreenWrapper>
 	);

@@ -24,6 +24,15 @@ export default {
 		fontFamily: fontFamily.RALEWAY_BOLD,
 		fontSize: variables.fontSizeLarge,
 	},
+
+	floatingActionButton: {
+		position: 'absolute',
+		right: 20,
+		bottom: 34,
+		borderRadius: 999,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 };
 
 /**
