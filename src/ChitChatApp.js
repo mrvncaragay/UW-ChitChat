@@ -22,7 +22,7 @@ const ChitChatApp = () => {
 					</TouchableOpacity>
 
 					<View style={[flex1]}>
-						<TouchableOpacity accessibilityLabel="Search" accessibilityRole="button" style={[ph5, alignItemsEnd]}>
+						<TouchableOpacity accessibilityLabel="Search" accessibilityRole="button" style={[alignItemsEnd]}>
 							<FontAwesome size={variables.avatarSizeNormal} name="user-circle" color={themeColors.icon} />
 						</TouchableOpacity>
 					</View>
