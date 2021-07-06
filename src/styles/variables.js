@@ -4,5 +4,6 @@ export default {
 	fontSizeNormal: 15,
 	iconSizeNormal: 18,
 	avatarSizeNormal: 32,
+	avatarSizeLarge: 42,
 	fabSizeLarge: 55,
 };

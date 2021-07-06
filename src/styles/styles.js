@@ -33,6 +33,25 @@ export default {
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+
+	optionAlternateText: {
+		color: themeColors.textSupporting,
+		fontFamily: fontFamily.GTA,
+		fontSize: variables.fontSizeLabel,
+		height: 20,
+		lineHeight: 20,
+	},
+	optionDisplayName: {
+		fontFamily: fontFamily.GTA,
+		height: 18,
+		lineHeight: 18,
+	},
+
+	optionAlternateTextCompact: {
+		flexShrink: 1,
+		flexGrow: 1,
+		flexBasis: 'auto',
+	},
 };
 
 /**
