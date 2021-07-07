@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import ScreenWrapper from './components/ScreenWrapper';
 import styles from './styles/styles';
@@ -6,6 +6,7 @@ import {FontAwesome5, FontAwesome} from '@expo/vector-icons';
 import themeColors from './styles/themes';
 import variables from './styles/variables';
 import Fab from './components/Fab';
+import MenuModal from './components/Modal';
 
 const DATA = [
 	{
@@ -63,10 +64,18 @@ const Header = () => {
 const ChitChatApp = () => {
 	const {flex1, appContent} = styles;
 
+	const [isMenuVisible, setIsMenuVisible] = useState(false);
+
+	const toggleMenu = () => {
+		console.log('called');
+		setIsMenuVisible(!isMenuVisible);
+	};
+
 	return (
 		<ScreenWrapper style={[appContent, flex1]}>
 			<Header />
-			<Fab />
+			<Fab onPress={toggleMenu} />
+			<MenuModal isModalVisible={isMenuVisible} />
 		</ScreenWrapper>
 	);
 };

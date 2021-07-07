@@ -5,9 +5,9 @@ import variables from '../../styles/variables';
 import styles from '../../styles/styles';
 import {AntDesign} from '@expo/vector-icons';
 
-const Fab = () => {
+const Fab = ({onPress}) => {
 	return (
-		<Pressable accessibilityLabel="FabNewChat" accessibilityRole="button" style={styles.floatingActionButton}>
+		<Pressable onPress={() => onPress()} accessibilityLabel="FabNewChat" accessibilityRole="button" style={[styles.floatingActionButton, {zIndex: 1}]}>
 			<AntDesign name="pluscircle" size={variables.fabSizeLarge} color={themeColors.main} />
 		</Pressable>
 	);
