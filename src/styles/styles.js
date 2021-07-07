@@ -52,6 +52,28 @@ export default {
 		flexGrow: 1,
 		flexBasis: 'auto',
 	},
+
+	modalMenuItems: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		padding: 20,
+	},
+
+	createMenuText: {
+		fontFamily: fontFamily.RALEWAY_BOLD,
+		fontSize: variables.fontSizeNormal,
+		color: themeColors.heading,
+	},
+
+	baseModalStyle: {
+		...spacing.pt4,
+		margin: 0,
+		overflow: 'hidden',
+		backgroundColor: '#fff',
+		width: '100%',
+		borderTopLeftRadius: 20,
+		borderTopRightRadius: 20,
+	},
 };
 
 /**

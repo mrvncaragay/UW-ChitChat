@@ -67,7 +67,6 @@ const ChitChatApp = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
 
 	const toggleMenu = () => {
-		console.log('called');
 		setIsMenuVisible(!isMenuVisible);
 	};
 
@@ -75,7 +74,7 @@ const ChitChatApp = () => {
 		<ScreenWrapper style={[appContent, flex1]}>
 			<Header />
 			<Fab onPress={toggleMenu} />
-			<MenuModal isModalVisible={isMenuVisible} />
+			<MenuModal isModalVisible={isMenuVisible} onPressOutSide={toggleMenu} />
 		</ScreenWrapper>
 	);
 };

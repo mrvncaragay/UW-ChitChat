@@ -1,38 +1,53 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Pressable} from 'react-native';
 import Modal from 'react-native-modal';
 import {SafeAreaInsetsContext} from 'react-native-safe-area-context';
-import {getSafeAreaPadding} from '../../styles/styles';
+import styles, {getSafeAreaPadding} from '../../styles/styles';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
+import variables from '../../styles/variables';
+import colors from '../../styles/colors';
 
-function ModalTester({isModalVisible}) {
+const optionsMenu = [
+	{
+		title: 'New Chat',
+		icon: 'chat',
+	},
+	{
+		title: 'New Group',
+		icon: 'account-group',
+	},
+];
+
+function ModalTester({isModalVisible, onPressOutSide}) {
+	const {ph2, ml3, modalMenuItems, createMenuText, baseModalStyle} = styles;
 	return (
-		<Modal isVisible={isModalVisible} backdropOpacity={0.4} backdropColor="#C6C9CA" style={{margin: 0, justifyContent: 'flex-end'}}>
+		<Modal
+			isVisible={isModalVisible}
+			backdropOpacity={0.4}
+			backdropColor="#C6C9CA"
+			onBackdropPress={() => onPressOutSide()}
+			animationInTiming={200}
+			style={{margin: 0, justifyContent: 'flex-end'}}>
 			<SafeAreaInsetsContext.Consumer>
 				{(insets) => {
 					const {paddingBottom: safeAreaPaddingBottom} = getSafeAreaPadding(insets);
 
+					const baseStyle = {
+						paddingBottom: safeAreaPaddingBottom,
+						...baseModalStyle,
+					};
 					return (
-						<View
-							style={{
-								margin: 0,
-								paddingTop: 12,
-								paddingBottom: safeAreaPaddingBottom,
-								overflow: 'hidden',
-								backgroundColor: '#fff',
-								width: '100%',
-								borderTopLeftRadius: 20,
-								borderTopRightRadius: 20,
-								borderWidth: 1,
-								borderColor: 'red',
-							}}>
-							<View>
-								<View>
-									<Text>New Chat</Text>
-								</View>
-								<View>
-									<Text>New Chat</Text>
-								</View>
-							</View>
+						<View style={baseStyle}>
+							{optionsMenu.map((menu, index) => (
+								<Pressable key={index} style={({pressed}) => [{backgroundColor: pressed ? colors.gray2 : colors.white}, modalMenuItems]}>
+									{({pressed}) => (
+										<>
+											<MaterialCommunityIcons name={menu.icon} size={variables.iconSizeLarge} style={ph2} color={pressed ? colors.dark : colors.gray3} />
+											<Text style={[createMenuText, ml3]}>{menu.title}</Text>
+										</>
+									)}
+								</Pressable>
+							))}
 						</View>
 					);
 				}}
