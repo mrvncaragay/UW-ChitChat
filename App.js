@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import ErrorBoundary from './src/components/ErrorBoundary';
@@ -5,6 +6,12 @@ import {StatusBar} from 'expo-status-bar';
 import {useFonts} from 'expo-font';
 import ChitChatApp from './src/ChitChatApp';
 import AppLoading from 'expo-app-loading';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+// Sreens
+import NewChat from './src/screens/NewChat';
+
 import {
 	Raleway_100Thin,
 	Raleway_100Thin_Italic,
@@ -25,6 +32,8 @@ import {
 	Raleway_900Black,
 	Raleway_900Black_Italic,
 } from '@expo-google-fonts/raleway';
+
+const Stack = createStackNavigator();
 
 export default () => {
 	const [loaded] = useFonts({
@@ -56,7 +65,12 @@ export default () => {
 		<SafeAreaProvider>
 			<ErrorBoundary errorMessage="ChitChat crash caught by error boundary">
 				<StatusBar style="auto" />
-				<ChitChatApp />
+				<NavigationContainer>
+					<Stack.Navigator headerMode="none">
+						<Stack.Screen name="Home" component={ChitChatApp} />
+						<Stack.Screen name="NewChat" component={NewChat} />
+					</Stack.Navigator>
+				</NavigationContainer>
 			</ErrorBoundary>
 		</SafeAreaProvider>
 	);

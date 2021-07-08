@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, Pressable} from 'react-native';
 import Modal from 'react-native-modal';
 import {SafeAreaInsetsContext} from 'react-native-safe-area-context';
@@ -6,11 +6,13 @@ import styles, {getSafeAreaPadding} from '../../styles/styles';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import variables from '../../styles/variables';
 import colors from '../../styles/colors';
+import {useNavigation} from '@react-navigation/core';
 
 const optionsMenu = [
 	{
 		title: 'New Chat',
 		icon: 'chat',
+		screen: 'NewChat',
 	},
 	{
 		title: 'New Group',
@@ -20,13 +22,18 @@ const optionsMenu = [
 
 function ModalTester({isModalVisible, onPressOutSide}) {
 	const {ph2, ml3, modalMenuItems, createMenuText, baseModalStyle} = styles;
+	const navigation = useNavigation();
+	const [screen, setScreen] = useState(null);
+
 	return (
 		<Modal
 			isVisible={isModalVisible}
 			backdropOpacity={0.4}
-			backdropColor="#C6C9CA"
+			backdropColor={colors.gray3}
 			onBackdropPress={() => onPressOutSide()}
 			animationInTiming={200}
+			animationOutTiming={600}
+			onModalHide={() => navigation.navigate(screen)}
 			style={{margin: 0, justifyContent: 'flex-end'}}>
 			<SafeAreaInsetsContext.Consumer>
 				{(insets) => {
@@ -39,7 +46,17 @@ function ModalTester({isModalVisible, onPressOutSide}) {
 					return (
 						<View style={baseStyle}>
 							{optionsMenu.map((menu, index) => (
-								<Pressable key={index} style={({pressed}) => [{backgroundColor: pressed ? colors.gray2 : colors.white}, modalMenuItems]}>
+								<Pressable
+									key={index}
+									style={({pressed}) => [{backgroundColor: pressed ? colors.gray2 : colors.white}, modalMenuItems]}
+									onPress={() => {
+										if (menu.screen) {
+											onPressOutSide();
+											setScreen(menu.screen);
+										} else {
+											return null;
+										}
+									}}>
 									{({pressed}) => (
 										<>
 											<MaterialCommunityIcons name={menu.icon} size={variables.iconSizeLarge} style={ph2} color={pressed ? colors.dark : colors.gray3} />

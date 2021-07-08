@@ -61,7 +61,7 @@ const Header = () => {
 	);
 };
 
-const ChitChatApp = () => {
+const ChitChatApp = ({navigation}) => {
 	const {flex1, appContent} = styles;
 
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
