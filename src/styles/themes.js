@@ -6,4 +6,6 @@ export default {
 	main: colors.orange,
 	textSupporting: colors.gray4,
 	text: colors.dark,
+	componentBG: colors.white,
+	border: colors.gray2,
 };

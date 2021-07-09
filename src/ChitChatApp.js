@@ -7,41 +7,15 @@ import themeColors from './styles/themes';
 import variables from './styles/variables';
 import Fab from './components/Fab';
 import MenuModal from './components/Modal';
-
-const DATA = [
-	{
-		id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-		name: 'James Dawson',
-		message: 'This is a test message from test 1',
-	},
-	{
-		id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-		email: 'graidmeasure@gmail.com',
-		message: 'This is a test message from test 2 a long message for syre',
-	},
-];
-
-const SectionRow = ({data}) => {
-	const {flex1, pv2, flexRow, ph4, optionAlternateText, optionDisplayName, optionAlternateTextCompact} = styles;
-	return (
-		<View style={[flex1, pv2, flexRow, {overflow: 'hidden'}]}>
-			<FontAwesome size={variables.avatarSizeLarge} name="user-circle" color={themeColors.icon} />
-			<View style={ph4}>
-				<Text style={optionDisplayName}>{data.name || data.email}</Text>
-				<Text numberOfLines={1} style={[optionAlternateText, optionAlternateTextCompact]}>
-					{data.message}
-				</Text>
-			</View>
-		</View>
-	);
-};
+import SectionRow from './components/SectionRow';
+import dummyData from './data';
 
 const Header = () => {
 	const {flex1, flexRow, ph5, pv3, justifyContentBetween, alignItemsCenter, alignItemsEnd, h100, headerText} = styles;
 	return (
 		<View style={[flex1, h100]}>
 			<View style={[flexRow, ph5, pv3, justifyContentBetween, alignItemsCenter]}>
-				<Text numberOfLines={2} style={[headerText]}>
+				<Text numberOfLines={1} style={[headerText]}>
 					Chats
 				</Text>
 
@@ -56,7 +30,7 @@ const Header = () => {
 				</View>
 			</View>
 
-			<FlatList contentContainerStyle={ph5} data={DATA} keyExtractor={(item) => item.id} renderItem={({item}) => <SectionRow data={item} />} />
+			<FlatList contentContainerStyle={ph5} data={dummyData} keyExtractor={(item) => item.id} renderItem={({item}) => <SectionRow data={item} />} />
 		</View>
 	);
 };

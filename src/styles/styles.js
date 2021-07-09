@@ -74,6 +74,22 @@ export default {
 		borderTopLeftRadius: 20,
 		borderTopRightRadius: 20,
 	},
+
+	textInput: {
+		backgroundColor: themeColors.componentBG,
+		borderRadius: variables.componentBorderRadiusNormal,
+		height: variables.componentSizeNormal,
+		borderColor: themeColors.border,
+		borderWidth: 1,
+		color: themeColors.text,
+		fontFamily: fontFamily.GTA,
+		fontSize: variables.fontSizeNormal,
+		paddingLeft: 12,
+		paddingRight: 12,
+		paddingTop: 10,
+		paddingBottom: 10,
+		textAlignVertical: 'center',
+	},
 };
 
 /**

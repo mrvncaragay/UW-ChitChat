@@ -7,4 +7,6 @@ export default {
 	avatarSizeNormal: 32,
 	avatarSizeLarge: 42,
 	fabSizeLarge: 55,
+	componentBorderRadiusNormal: 8,
+	componentSizeNormal: 40,
 };
