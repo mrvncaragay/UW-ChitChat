@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, TextInput, FlatList} from 'react-native';
 import styles from '../styles/styles';
 import ScreenWrapper from '../components/ScreenWrapper';
-import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
 import variables from '../styles/variables';
 import themeColors from '../styles/themes';
 import {useNavigation} from '@react-navigation/native';
